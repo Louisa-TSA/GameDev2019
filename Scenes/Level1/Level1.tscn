@@ -1,20 +1,23 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Scenes/Level1/Tileset.tres" type="TileSet" id=1]
-[ext_resource path="res://Assets/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Level1/Level1.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Level1/Tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://Assets/Player.tscn" type="PackedScene" id=3]
 
 [node name="Level1" type="Spatial" index="0"]
+
+script = ExtResource( 1 )
 
 [node name="Floor" type="TileMap" parent="." index="0"]
 
 mode = 1
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 64, 32 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 cell_half_offset = 2
 cell_tile_origin = 0
-cell_y_sort = false
+cell_y_sort = true
 cell_clip_uv = false
 collision_use_kinematic = false
 collision_friction = 1.0
@@ -23,19 +26,20 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( -65538, 2, 0, -65537, 2, 0, -131072, 2, 0, -2, 2, 0, -1, 2, 0, -65536, 2, 0, 65534, 2, 0, 65535, 2, 0, 0, 2, 0 )
+tile_data = PoolIntArray( -65538, 2, 0, -65537, 2, 0, -131072, 2, 0, -131071, 2, 0, -2, 2, 0, -1, 2, 0, -65536, 2, 0, -65535, 2, 0, 65534, 2, 0, 65535, 2, 0, 0, 2, 0, 1, 2, 0, 131070, 2, 0, 131071, 2, 0, 65536, 2, 0, 65537, 2, 0 )
 _sections_unfolded = [ "Cell" ]
 
 [node name="Walls" type="TileMap" parent="." index="1"]
 
+editor/display_folded = true
 mode = 1
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 64, 32 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 cell_half_offset = 2
 cell_tile_origin = 0
-cell_y_sort = false
+cell_y_sort = true
 cell_clip_uv = false
 collision_use_kinematic = false
 collision_friction = 1.0
@@ -44,40 +48,11 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( -131075, 0, 0, -131074, 0, 0, -131073, 0, 0, -196608, 0, 0, -196607, 0, 0, -65539, 0, 0, -131071, 0, 0, -3, 0, 0, -65535, 0, 0, 65533, 0, 0, 1, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0 )
-_sections_unfolded = [ "Cell", "Collision" ]
+tile_data = PoolIntArray( -131075, 0, 0, -131074, 0, 0, -131073, 0, 0, -196608, 0, 0, -196607, 0, 0, -196606, 0, 0, -65539, 0, 0, -131070, 0, 0, -3, 0, 0, -65534, 0, 0, 65533, 0, 0, 2, 0, 0, 131069, 0, 0, 65538, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0 )
+_sections_unfolded = [ "Cell" ]
 
-[node name="Player" parent="Walls" index="0" instance=ExtResource( 2 )]
+[node name="Player" parent="Walls" index="0" instance=ExtResource( 3 )]
 
-editor/display_folded = true
-scale = Vector2( 0.1, 0.1 )
 _sections_unfolded = [ "Transform" ]
-
-[node name="Camera2D" type="Camera2D" parent="Walls/Player" index="2"]
-
-position = Vector2( 0, 43.2986 )
-anchor_mode = 1
-rotating = false
-current = true
-zoom = Vector2( 0.1, 0.1 )
-limit_left = -10000
-limit_top = -10000
-limit_right = 10000
-limit_bottom = 10000
-limit_smoothed = false
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = false
-smoothing_speed = 5.0
-offset_v = 0.0
-offset_h = 0.0
-drag_margin_left = 0.02
-drag_margin_top = 0.02
-drag_margin_right = 0.02
-drag_margin_bottom = 0.02
-editor_draw_screen = true
-editor_draw_limits = false
-editor_draw_drag_margin = false
-_sections_unfolded = [ "Drag Margin", "Limit" ]
 
 

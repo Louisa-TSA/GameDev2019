@@ -8,13 +8,13 @@
 
 position = Vector2( 40, 40 )
 texture = ExtResource( 1 )
+offset = Vector2( 0, -32 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 64, 64 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Offset" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Wall" index="0"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -22,25 +22,24 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall/StaticBody2D" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( 0, 32, -32, 16, 0, 0, 32, 16 )
-_sections_unfolded = [ "Transform" ]
+polygon = PoolVector2Array( 0, 0, -32, -16, 0, -32, 32, -16 )
 
 [node name="WallWithHole" type="Sprite" parent="." index="1"]
 
 position = Vector2( 110, 40 )
 texture = ExtResource( 1 )
+offset = Vector2( 0, -32 )
 region_enabled = true
 region_rect = Rect2( 64, 0, 64, 64 )
-_sections_unfolded = [ "Region", "Transform" ]
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="WallWithHole" index="0"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -52,17 +51,17 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallWithHole/StaticBody2D" index="0"]
 
-scale = Vector2( 1, 1 )
 build_mode = 0
-polygon = PoolVector2Array( 0, 32, -32, 16, 0, 0, 32, 16 )
+polygon = PoolVector2Array( 0, 0, -32, -16, 0, -32, 32, -16 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="Floor" type="Sprite" parent="." index="2"]
 
 position = Vector2( 180, 40 )
 texture = ExtResource( 1 )
+offset = Vector2( 0, -32 )
 region_enabled = true
-region_rect = Rect2( 129, 0, 64, 64 )
-_sections_unfolded = [ "Region", "Transform" ]
+region_rect = Rect2( 0, 320, 64, 64 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
 
 
