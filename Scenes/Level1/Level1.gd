@@ -1,4 +1,4 @@
-extends Spatial
+extends Node2D
 
 var exit_timer = 0.0
 var exit_delay = 0.50

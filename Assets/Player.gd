@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var direction = Vector2()
 var velocity  = Vector2()
-var speed     = 10000.0
+var speed     = 7500.0
 
 var sprite
 
@@ -26,9 +26,9 @@ func _process(delta):
 	
 	velocity = move_and_slide(velocity)
 	
-	if(velocity.x < -50):
+	if(velocity.x < -5):
 		sprite.set_flip_h(true)
-	elif(velocity.x > 50):
+	elif(velocity.x > 5):
 		sprite.set_flip_h(false)
 	else:
 		pass
