@@ -3,5 +3,5 @@
 # Plans
 * 2D Isometric
 * Playable
-* Someone good
+* Somewhat good
 * "Sufficient Educational and Social Value"
