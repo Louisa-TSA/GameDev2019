@@ -4,4 +4,4 @@
 * 2D Isometric
 * Playable
 * Somewhat good
-* "Sufficient Educational and Social Value"
+* "Exceptional Educational and Social Value"
