@@ -52,7 +52,6 @@ _sections_unfolded = [ "Cell" ]
 
 [node name="Player" parent="Walls" index="0" instance=ExtResource( 3 )]
 
-scale = Vector2( 1, 1 )
 _sections_unfolded = [ "Transform" ]
 
 
