@@ -24,11 +24,11 @@ func _process(delta):
 	
 	velocity = delta * direction.normalized() * speed
 	
-	velocity = move_and_slide(velocity)
-	
 	if(velocity.x < -5):
 		sprite.set_flip_h(true)
 	elif(velocity.x > 5):
 		sprite.set_flip_h(false)
 	else:
 		pass
+	
+	velocity = move_and_slide(velocity)
