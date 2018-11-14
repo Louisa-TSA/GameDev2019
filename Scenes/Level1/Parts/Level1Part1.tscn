@@ -2,14 +2,14 @@
 
 [ext_resource path="res://Scenes/Level1/Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Assets/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Level1/Parts/Level1SecretDoor.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Level1/Parts/Level1SecretDoor1.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 43.9243, 30 )
 
-[node name="Level1Part1" type="Node2D" index="0"]
+[node name="Level1Part1" type="Node2D"]
 
 [node name="Floor" type="TileMap" parent="." index="0"]
 
@@ -55,10 +55,12 @@ _sections_unfolded = [ "Cell" ]
 
 [node name="Player" parent="Walls" index="0" instance=ExtResource( 2 )]
 
+position = Vector2( -3.4295, -72.0194 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area2D" type="Area2D" parent="Walls" index="1"]
 
+visible = false
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0

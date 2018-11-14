@@ -1,7 +1,20 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Level1/Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Assets/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Level1/Parts/Level1SecretDoor2.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Level1/Parts/Cannon.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Resources/Spudgun.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 43.9243, 30 )
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0
 
 [node name="Level1SecretRoom" type="Node2D"]
 
@@ -44,11 +57,54 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( -131075, 1, 0, -131074, 1, 0, -131073, 1, 0, -196608, 1, 0, -196607, 1, 0, -196606, 1, 0, -196605, 1, 0, -196604, 1, 0, -196603, 1, 0, -196602, 1, 0, -196601, 1, 0, -65539, 1, 0, -131065, 1, 0, -3, 1, 0, -65529, 1, 0, 65533, 1, 0, 7, 1, 0, 131069, 1, 0, 65543, 1, 0, 196605, 1, 0, 196606, 1, 0, 196607, 1, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0 )
+tile_data = PoolIntArray( -131075, 1, 0, -131074, 1, 0, -131073, 1, 0, -196608, 1, 0, -196607, 1, 0, -196606, 1, 0, -196605, 1, 0, -196604, 1, 0, -196603, 1, 0, -196602, 1, 0, -196601, 1, 0, -65539, 1, 0, -131065, 1, 0, -3, 1, 0, -65529, 1, 0, 65533, 1, 0, 7, 1, 0, 131069, 1, 0, 65543, 1, 0, 196605, 1, 0, 196606, 0, 0, 196607, 0, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0 )
 _sections_unfolded = [ "Cell" ]
 
 [node name="Player" parent="Walls" index="0" instance=ExtResource( 2 )]
 
+position = Vector2( -52.9865, -43.9401 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="Area2D" type="Area2D" parent="Walls" index="1"]
+
+position = Vector2( -158.96, 77.5413 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Area2D" index="0"]
+
+position = Vector2( 37.4407, -65.7816 )
+rotation = 0.479966
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="Cannon" type="Area2D" parent="Walls" index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Walls/Cannon" index="0"]
+
+position = Vector2( 153.963, 51.4733 )
+scale = Vector2( 0.167769, 0.208103 )
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Cannon" index="1"]
+
+position = Vector2( 133.113, 50.4019 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Visibility" ]
 
 

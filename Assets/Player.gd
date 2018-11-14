@@ -5,9 +5,12 @@ var velocity  = Vector2()
 var speed     = 7500.0
 
 var sprite
+var spudgun
 
 func _ready():
 	sprite = get_node("Sprite")
+	spudgun = get_node("Sprite/Spudgun/SpudSprite")
+	spudgun.hide()
 	pass
 
 func _process(delta):
@@ -26,8 +29,10 @@ func _process(delta):
 	
 	if(velocity.x < -5):
 		sprite.set_flip_h(true)
+		spudgun.set_flip_h(true)
 	elif(velocity.x > 5):
 		sprite.set_flip_h(false)
+		spudgun.set_flip_h(false)
 	else:
 		pass
 	
