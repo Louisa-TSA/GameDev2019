@@ -11,4 +11,4 @@ func _ready():
 	
 func _process(delta):
 	if(overlaps_body(player)):
-		get_tree().change_scene("res://Scenes/Level1/Parts/Level1Part1.tscn")
+		player.level1.load_part_1()

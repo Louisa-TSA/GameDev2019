@@ -6,12 +6,14 @@ var speed     = 7500.0
 
 var sprite
 var spudgun
+var level1
 
 func _ready():
 	sprite = get_node("Sprite")
 	spudgun = get_node("Sprite/Spudgun/SpudSprite")
-	spudgun.hide()
-	pass
+	level1 = get_tree().get_root().get_node("Level1")
+	if(!level1.player_has_gun):
+		spudgun.hide()
 
 func _process(delta):
 	direction = Vector2()
