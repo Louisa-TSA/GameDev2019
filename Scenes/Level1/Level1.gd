@@ -32,7 +32,8 @@ func load_part_1():
 	add_child(part1_instance)
 	player = get_node("part1/Walls/Player")
 	if(player_has_gun):
-		player.spudgun.show()
+		player.spudgun_sprite.show()
+		player.spudgun.make_exist()
 	player.move_and_slide(Vector2(-1000,650))
 	pass
 
