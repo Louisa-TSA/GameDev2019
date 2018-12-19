@@ -20,7 +20,7 @@ _sections_unfolded = [ "Offset", "Region" ]
 
 input_pickable = false
 collision_layer = 1
-collision_mask = 1
+collision_mask = 0
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
@@ -67,30 +67,30 @@ region_enabled = true
 region_rect = Rect2( 0, 320, 64, 64 )
 _sections_unfolded = [ "Offset", "Region", "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="." index="3"]
+[node name="Chasm" type="Sprite" parent="." index="3"]
 
-position = Vector2( 251, -29 )
+position = Vector2( 251, 0 )
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 640, 256, 64, 128 )
-_sections_unfolded = [ "Region" ]
+region_rect = Rect2( 640, 352, 64, 32 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite" index="0"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Chasm" index="0"]
 
+position = Vector2( 1.36038, 0 )
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 2
+collision_mask = 0
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/StaticBody2D" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Chasm/StaticBody2D" index="0"]
 
-scale = Vector2( 1, 1 )
 build_mode = 0
-polygon = PoolVector2Array( 0, 64, -32, 48, 0, 32, 32, 48 )
-_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+polygon = PoolVector2Array( 0, 16, -32, 0, 0, -16, 32, 0 )
+_sections_unfolded = [ "Material", "Visibility" ]
 
 

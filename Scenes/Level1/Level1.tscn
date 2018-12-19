@@ -2,8 +2,9 @@
 
 [ext_resource path="res://Scenes/Level1/Level1.gd" type="Script" id=1]
 
-[node name="Level1" type="Node2D" index="0"]
+[node name="Level1" type="Node2D"]
 
+position = Vector2( -0.209349, 0 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 

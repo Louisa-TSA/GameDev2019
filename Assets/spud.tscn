@@ -8,14 +8,14 @@
 custom_solver_bias = 0.0
 radius = 6.39489
 
-[node name="spud" type="KinematicBody2D"]
+[node name="spud" type="KinematicBody2D" index="0"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 2
+collision_layer = 0
+collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Pickable", "collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
