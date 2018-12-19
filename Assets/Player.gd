@@ -25,7 +25,7 @@ func _ready():
 	level1 = get_tree().get_root().get_node("Level1")
 	if(!level1.player_has_gun):
 		spudgun_sprite.hide()
-		spudgun.make_not_exist()
+		spudgun.exists = false
 
 func _process(delta):
 	direction = Vector2()

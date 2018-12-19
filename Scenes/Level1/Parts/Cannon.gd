@@ -15,5 +15,5 @@ func _process(delta):
 	if(overlaps_body(player)):
 		level1.attain_gun()
 		spudgun_sprite.show()
-		spudgun.make_exist()
+		spudgun.exists = true
 		get_parent().remove_child(self)

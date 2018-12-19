@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var direction = Vector2()
 var velocity  = Vector2()
-var speed     = 10000.0
+var speed     = 25000.0
 var timer = 0
 
 

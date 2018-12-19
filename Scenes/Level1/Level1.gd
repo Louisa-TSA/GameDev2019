@@ -22,7 +22,7 @@ func _process(delta):
 		exit_timer += delta
 	else:
 		exit_timer = 0.0
-		
+	
 	if(exit_timer >= exit_delay):
 		get_tree().quit()
 
@@ -33,7 +33,7 @@ func load_part_1():
 	player = get_node("part1/Walls/Player")
 	if(player_has_gun):
 		player.spudgun_sprite.show()
-		player.spudgun.make_exist()
+		player.spudgun.exists = true
 	player.move_and_slide(Vector2(-1000,650))
 	pass
 

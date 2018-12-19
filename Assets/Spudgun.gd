@@ -16,12 +16,6 @@ func _ready():
 #	# Update game logic here.
 #	pass
 
-func make_exist():
-	exists = true
-func make_not_exist():
-	exists = false
-
-
 func _process(delta):
 	timer+=delta
 	if(Input.is_action_pressed("shoot") and exists
@@ -29,16 +23,16 @@ func _process(delta):
 		timer = 0
 		var spud_instance = spud.instance()
 		get_parent().get_parent().get_parent().add_child(spud_instance)
-		spud_instance.go(self.global_position,direction_to_vector(player.direction_facing))
+		spud_instance.go(self.global_position, direction_to_vector(player.direction_facing))
 
 func direction_to_vector(direction):
 	if(direction == player.Facing.RIGHT):
-		return Vector2(1, 0)
+		return Vector2(0.866025, -0.5)
 	elif(direction == player.Facing.LEFT):
-		return Vector2(-1, 0)
+		return Vector2(-0.866025, 0.5)
 	elif(direction == player.Facing.UP):
-		return Vector2(0, -1)
+		return Vector2(-0.866025, -0.5)
 	elif(direction == player.Facing.DOWN):
-		return Vector2(0, 1)
+		return Vector2(0.866025, 0.5)
 	else:
-		return Vector2(1, 0)
+		return direction_to_vector(player.Facing.RIGHT)
