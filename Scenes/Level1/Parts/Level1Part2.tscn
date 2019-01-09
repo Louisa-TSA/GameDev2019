@@ -16,7 +16,7 @@ extents = Vector2( 43.9243, 30 )
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="Level1SecretRoom" type="Node2D"]
+[node name="Level1SecretRoom" type="Node2D" index="0"]
 
 [node name="Floor" type="TileMap" parent="." index="0"]
 
@@ -63,7 +63,7 @@ _sections_unfolded = [ "Cell" ]
 [node name="Player" parent="Walls" index="0" instance=ExtResource( 2 )]
 
 position = Vector2( -52.9865, -43.9401 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform", "collision" ]
 
 [node name="Area2D" type="Area2D" parent="Walls" index="1"]
 

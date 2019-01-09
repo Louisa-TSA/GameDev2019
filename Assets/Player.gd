@@ -7,7 +7,7 @@ var speed     = 7500.0
 var sprite
 var spudgun_sprite
 var spudgun
-var level1
+var has_spudgun = false
 
 enum Facing {
 	LEFT,
@@ -22,8 +22,7 @@ func _ready():
 	sprite = get_node("Sprite")
 	spudgun_sprite = get_node("Sprite/Spudgun/SpudSprite")
 	spudgun = get_node("Sprite/Spudgun")
-	level1 = get_tree().get_root().get_node("Level1")
-	if(!level1.player_has_gun):
+	if(!self.has_spudgun):
 		spudgun_sprite.hide()
 		spudgun.exists = false
 
@@ -38,7 +37,7 @@ func _process(delta):
 		direction.x -= 1
 	if(Input.is_action_pressed("move_right")):
 		direction.x += 1
-		
+	
 	if(direction.y > 0):
 		direction_facing = Facing.DOWN
 	elif(direction.y < 0):
