@@ -6,15 +6,8 @@ var timer = 0
 var player
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
 	player = get_parent().get_parent()
 	pass
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
 
 func _process(delta):
 	timer+=delta
