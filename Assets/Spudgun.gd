@@ -1,6 +1,6 @@
 extends Node2D
 
-var exists = true;
+var exists = true
 var spud = load("res://Assets/spud.tscn")
 var timer = 0
 var player

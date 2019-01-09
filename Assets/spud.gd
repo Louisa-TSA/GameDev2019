@@ -28,14 +28,14 @@ func _process(delta):
 	if(stop == false):
 		velocity = delta * direction.normalized() * speed
 	else:
-		stop_timer+=delta;
+		stop_timer+=delta
 		if(stop_timer > 0.05):
 			get_parent().remove_child(self)
-	previous_velocity = velocity;
+	previous_velocity = velocity
 	velocity = move_and_slide(velocity)
 	if(velocity != previous_velocity):
-		stop = true;
-		velocity = Vector2(0,0);
-		stop_timer = 0;
+		stop = true
+		velocity = Vector2(0,0)
+		stop_timer = 0
 	if(timer >1):
 		get_parent().remove_child(self)
