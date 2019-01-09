@@ -8,17 +8,13 @@ var timer = 0
 var stop  = false
 var stop_timer = 0
 
-
-
 func _ready():
-	
 	pass
-	
+
 func go(coordinate, direction):
 	self.global_position.x = coordinate.x
 	self.global_position.y = coordinate.y
 	self.direction = direction
-
 
 func _process(delta):
 	timer +=delta

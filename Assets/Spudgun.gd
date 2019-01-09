@@ -7,7 +7,6 @@ var player
 
 func _ready():
 	player = get_parent().get_parent()
-	pass
 
 func _process(delta):
 	timer+=delta

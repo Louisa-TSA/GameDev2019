@@ -56,8 +56,5 @@ func _process(delta):
 	elif(velocity.x > 5):
 		sprite.set_flip_h(false)
 		spudgun_sprite.set_flip_h(false)
-	else:
-		pass
 	
 	velocity = move_and_slide(velocity)
-
