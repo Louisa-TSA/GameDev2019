@@ -20,6 +20,7 @@ _sections_unfolded = [ "Collision", "collision" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+editor/display_folded = true
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )
 

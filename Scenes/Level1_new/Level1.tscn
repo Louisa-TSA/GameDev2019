@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Level1_new/Level1.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Level1_new/Tileset.tres" type="TileSet" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://Scenes/Level1_new/MainToSub.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Level1_new/SubToMain.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Spudgun_pickup.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Level1_new/Target.gd" type="Script" id=7]
+[ext_resource path="res://icon.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/Level1_new/Sign.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -17,7 +20,17 @@ extents = Vector2( 52.3214, 31.4136 )
 custom_solver_bias = 0.0
 extents = Vector2( 43.0066, 24.1375 )
 
-[node name="Level1" type="Node2D" index="0"]
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 6.5192
+
+[sub_resource type="CircleShape2D" id=4]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[node name="Level1" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -39,7 +52,7 @@ collision_layer = 2
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( -1441771, 2, 0, -1441770, 2, 0, -1441769, 2, 0, -1441768, 2, 0, -1376235, 2, 0, -1376234, 2, 0, -1376233, 2, 0, -1376232, 2, 0, -1310699, 2, 0, -1310698, 2, 0, -1310697, 2, 0, -1310696, 2, 0, -1245163, 2, 0, -1245162, 2, 0, -1245161, 2, 0, -1245160, 2, 0, -65538, 2, 0, -65537, 2, 0, -131072, 2, 0, -131071, 2, 0, -131070, 2, 0, -131069, 2, 0, -131068, 2, 0, -2, 2, 0, -1, 2, 0, -65536, 2, 0, -65535, 2, 0, -65534, 2, 0, -65533, 2, 0, -65532, 2, 0, 65534, 2, 0, 65535, 2, 0, 0, 2, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 131070, 2, 0, 131071, 3, 0, 65536, 3, 0, 65537, 3, 0, 65538, 3, 0, 65539, 2, 0, 65540, 2, 0, 196606, 2, 0, 196607, 2, 0, 131072, 2, 0, 131073, 2, 0, 131074, 2, 0, 131075, 2, 0, 131076, 2, 0, 262142, 2, 0, 262143, 2, 0, 196608, 2, 0, 196609, 2, 0, 196610, 2, 0, 196611, 2, 0, 196612, 2, 0, 327678, 2, 0, 327679, 2, 0, 262144, 2, 0, 262145, 2, 0, 262146, 2, 0, 262147, 2, 0, 262148, 2, 0, 393214, 2, 0, 393215, 2, 0, 327680, 2, 0, 327681, 2, 0, 327682, 2, 0, 327683, 2, 0, 327684, 2, 0 )
+tile_data = PoolIntArray( -1441771, 2, 0, -1441770, 2, 0, -1441769, 2, 0, -1441768, 2, 0, -1376235, 2, 0, -1376234, 2, 0, -1376233, 2, 0, -1376232, 2, 0, -1310699, 2, 0, -1310698, 2, 0, -1310697, 2, 0, -1310696, 2, 0, -1245163, 2, 0, -1245162, 2, 0, -1245161, 2, 0, -1245160, 2, 0, -65538, 2, 0, -65537, 2, 0, -131072, 2, 0, -131071, 2, 0, -131070, 2, 0, -131069, 2, 0, -131068, 2, 0, -2, 2, 0, -1, 2, 0, -65536, 2, 0, -65535, 2, 0, -65534, 2, 0, -65533, 2, 0, -65532, 2, 0, 65534, 2, 0, 65535, 2, 0, 0, 2, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 131070, 3, 0, 131071, 3, 0, 65536, 3, 0, 65537, 3, 0, 65538, 3, 0, 65539, 3, 0, 65540, 3, 0, 196606, 3, 0, 196607, 3, 0, 131072, 3, 0, 131073, 3, 0, 131074, 2, 0, 131075, 2, 0, 131076, 2, 0, 262142, 3, 0, 262143, 3, 0, 196608, 3, 0, 196609, 3, 0, 196610, 2, 0, 196611, 2, 0, 196612, 2, 0, 327678, 2, 0, 327679, 2, 0, 262144, 2, 0, 262145, 2, 0, 262146, 2, 0, 262147, 2, 0, 262148, 2, 0, 393214, 2, 0, 393215, 2, 0, 327680, 2, 0, 327681, 2, 0, 327682, 2, 0, 327683, 2, 0, 327684, 2, 0 )
 _sections_unfolded = [ "Cell", "Collision" ]
 
 [node name="Walls" type="TileMap" parent="." index="1"]
@@ -97,6 +110,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 5 )
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/SubToMain" index="0"]
 
@@ -108,6 +122,51 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="SpudPickup" parent="Walls" index="3" instance=ExtResource( 6 )]
 
-position = Vector2( 1379.82, 29.742 )
+position = Vector2( 1380, 30 )
+
+[node name="Target" type="Area2D" parent="Walls" index="4"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 7 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Target" index="0"]
+
+position = Vector2( -6, 100 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Walls/Target" index="1"]
+
+position = Vector2( -5.60855, 96.4597 )
+scale = Vector2( 0.167969, 0.199219 )
+texture = ExtResource( 8 )
+
+[node name="Sign" type="Area2D" parent="Walls" index="5"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Sign" index="0"]
+
+position = Vector2( 86.0058, 27.9335 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Walls/Sign" index="1"]
+
+position = Vector2( 85.5643, 27.4031 )
+scale = Vector2( 0.122491, 0.112394 )
+texture = ExtResource( 8 )
 
 

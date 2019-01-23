@@ -71,4 +71,5 @@ points = PoolVector2Array( 0, 16, -32, 0, 0, -16, 32, 0 )
 "shape": SubResource( 3 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 32, 16 )
 } ]
+_sections_unfolded = [ "Resource" ]
 

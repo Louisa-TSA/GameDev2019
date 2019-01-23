@@ -1,9 +1,11 @@
 extends Area2D
 
 var player
+var tilemap
 
 func _ready():
 	player = get_node("../Player")
+	tilemap = player.get_node("../../Floor")
 
 func _process(delta):
 	if(overlaps_body(player) and !player.spudgun.exists):
