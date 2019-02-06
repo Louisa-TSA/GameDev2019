@@ -3,14 +3,19 @@
 [ext_resource path="res://Scenes/Level1_new/Level1.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Level1_new/Tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://Assets/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Level1_new/MainToSub.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/Level1_new/MainToSub2.gd" type="Script" id=5]
-[ext_resource path="res://Scenes/Level1_new/SubToMain.gd" type="Script" id=6]
-[ext_resource path="res://Assets/Spudgun_pickup.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Level1_new/Target.gd" type="Script" id=8]
-[ext_resource path="res://icon.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Spudgun_pickup.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Level1_new/Target.gd" type="Script" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Level1_new/MainToSub.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/Level1_new/MainToSub2.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/Level1_new/SubToMain.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Level1_new/Sign.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/Level1_new/Area2D.gd" type="Script" id=11]
+
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 6.5192
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -21,11 +26,6 @@ extents = Vector2( 52.3214, 31.4136 )
 
 custom_solver_bias = 0.0
 extents = Vector2( 43.0066, 24.1375 )
-
-[sub_resource type="CircleShape2D" id=3]
-
-custom_solver_bias = 0.0
-radius = 6.5192
 
 [sub_resource type="CircleShape2D" id=4]
 
@@ -87,30 +87,13 @@ _sections_unfolded = [ "Cell", "Collision" ]
 
 _sections_unfolded = [ "Collision", "Transform", "collision" ]
 
-[node name="MainToSub" type="Area2D" parent="Walls" index="1"]
+[node name="SpudPickup" parent="Walls" index="1" instance=ExtResource( 4 )]
 
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 4 )
-_sections_unfolded = [ "Collision" ]
+position = Vector2( 1380, 30 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/MainToSub" index="0"]
-
-position = Vector2( 45.5679, -74.4992 )
-rotation = 0.436332
-shape = SubResource( 1 )
-one_way_collision = true
-_sections_unfolded = [ "Transform" ]
-
-[node name="MainToSub2" type="Area2D" parent="Walls" index="2"]
+[node name="Target" type="Area2D" parent="Walls" index="2"]
 
 editor/display_folded = true
-position = Vector2( -226.001, 183.999 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -119,52 +102,6 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 5 )
-_sections_unfolded = [ "Collision" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/MainToSub2" index="0"]
-
-position = Vector2( 45.5679, -74.4992 )
-rotation = 0.436332
-shape = SubResource( 1 )
-one_way_collision = true
-_sections_unfolded = [ "Transform" ]
-
-[node name="SubToMain" type="Area2D" parent="Walls" index="3"]
-
-editor/display_folded = true
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 6 )
-_sections_unfolded = [ "Collision" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/SubToMain" index="0"]
-
-position = Vector2( 1260.04, 52.0892 )
-rotation = 0.436332
-shape = SubResource( 2 )
-one_way_collision = true
-_sections_unfolded = [ "Transform" ]
-
-[node name="SpudPickup" parent="Walls" index="4" instance=ExtResource( 7 )]
-
-position = Vector2( 1380, 30 )
-
-[node name="Target" type="Area2D" parent="Walls" index="5"]
-
-editor/display_folded = true
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 8 )
 _sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Target" index="0"]
@@ -176,12 +113,80 @@ shape = SubResource( 3 )
 
 position = Vector2( -5.60855, 96.4597 )
 scale = Vector2( 0.167969, 0.199219 )
-texture = ExtResource( 9 )
+texture = ExtResource( 6 )
 
-[node name="Sign" type="Area2D" parent="Walls" index="6"]
+[node name="MainToSub" type="Area2D" parent="Walls" index="3"]
+
+editor/display_folded = true
+scale = Vector2( 1, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 7 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/MainToSub" index="0"]
+
+position = Vector2( 45.5679, -74.4992 )
+rotation = 0.436332
+shape = SubResource( 1 )
+one_way_collision = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="MainToSub2" type="Area2D" parent="Walls" index="4"]
+
+editor/display_folded = true
+position = Vector2( -226.001, 183.999 )
+scale = Vector2( 1, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 8 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/MainToSub2" index="0"]
+
+position = Vector2( 45.5679, -74.4992 )
+rotation = 0.436332
+shape = SubResource( 1 )
+one_way_collision = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="SubToMain" type="Area2D" parent="Walls" index="5"]
+
+editor/display_folded = true
+scale = Vector2( 1, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 9 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/SubToMain" index="0"]
+
+position = Vector2( 1260.04, 52.0892 )
+rotation = 0.436332
+shape = SubResource( 2 )
+one_way_collision = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="Hint1" type="Area2D" parent="Walls" index="6"]
 
 editor/display_folded = true
 position = Vector2( 90, 37 )
+scale = Vector2( 1, 1 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -192,21 +197,22 @@ audio_bus_name = "Master"
 script = ExtResource( 10 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Sign" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Hint1" index="0"]
 
 shape = SubResource( 4 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Sprite" type="Sprite" parent="Walls/Sign" index="1"]
+[node name="Sprite" type="Sprite" parent="Walls/Hint1" index="1"]
 
 scale = Vector2( 0.122491, 0.112394 )
-texture = ExtResource( 9 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Region", "Transform" ]
 
-[node name="Area2D" type="Area2D" parent="Walls" index="7"]
+[node name="Hint2" type="Area2D" parent="Walls" index="7"]
 
 editor/display_folded = true
 position = Vector2( 720, 800 )
+scale = Vector2( 1, 1 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -217,15 +223,67 @@ audio_bus_name = "Master"
 script = ExtResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Area2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Hint2" index="0"]
 
 shape = SubResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="Walls/Area2D" index="1"]
+[node name="Sprite" type="Sprite" parent="Walls/Hint2" index="1"]
 
 scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 9 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Hint3" type="Area2D" parent="Walls" index="8"]
+
+editor/display_folded = true
+position = Vector2( 1116.81, 1000.37 )
+scale = Vector2( 1, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 11 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Hint3" index="0"]
+
+shape = SubResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="Walls/Hint3" index="1"]
+
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Hint4" type="Area2D" parent="Walls" index="9"]
+
+editor/display_folded = true
+position = Vector2( 858.014, 940.418 )
+scale = Vector2( 1, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 11 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Hint4" index="0"]
+
+shape = SubResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="Walls/Hint4" index="1"]
+
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="2"]
