@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/Level1_new/Level1.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Level1_new/Tileset.tres" type="TileSet" id=2]
@@ -33,6 +33,11 @@ custom_solver_bias = 0.0
 radius = 10.0
 
 [sub_resource type="CircleShape2D" id=5]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[sub_resource type="CircleShape2D" id=6]
 
 custom_solver_bias = 0.0
 radius = 10.0
@@ -211,7 +216,7 @@ _sections_unfolded = [ "Region", "Transform" ]
 [node name="Hint2" type="Area2D" parent="Walls" index="7"]
 
 editor/display_folded = true
-position = Vector2( 720, 800 )
+position = Vector2( 654.71, 824.993 )
 scale = Vector2( 1, 1 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -263,7 +268,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="Hint4" type="Area2D" parent="Walls" index="9"]
 
 editor/display_folded = true
-position = Vector2( 858.014, 940.418 )
+position = Vector2( 873.133, 973.158 )
 scale = Vector2( 1, 1 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -286,6 +291,103 @@ scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
+[node name="Plate2" type="Area2D" parent="Walls" index="10"]
+
+editor/display_folded = true
+position = Vector2( 701.499, 750.829 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Plate2" index="0"]
+
+shape = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Walls/Plate2" index="1"]
+
+position = Vector2( 0.0616455, -0.218384 )
+scale = Vector2( 0.125, 0.125 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Plate4" type="Area2D" parent="Walls" index="11"]
+
+editor/display_folded = true
+position = Vector2( 705.581, 877.194 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Plate4" index="0"]
+
+scale = Vector2( 1, 1 )
+shape = SubResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="Walls/Plate4" index="1"]
+
+scale = Vector2( 0.125, 0.125 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Plate1" type="Area2D" parent="Walls" index="12"]
+
+editor/display_folded = true
+position = Vector2( 902.205, 885.851 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Plate1" index="0"]
+
+scale = Vector2( 1, 1 )
+shape = SubResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="Walls/Plate1" index="1"]
+
+scale = Vector2( 0.125, 0.125 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Plate3" type="Area2D" parent="Walls" index="13"]
+
+editor/display_folded = true
+position = Vector2( 1042.36, 1058.15 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Plate3" index="0"]
+
+scale = Vector2( 1, 1 )
+shape = SubResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="Walls/Plate3" index="1"]
+
+scale = Vector2( 0.125, 0.125 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="2"]
 
 layer = 1
@@ -293,5 +395,7 @@ offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="PlateControler" type="Node" parent="." index="3"]
 
 
