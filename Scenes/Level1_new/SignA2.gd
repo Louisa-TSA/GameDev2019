@@ -10,13 +10,15 @@ func _ready():
 
 func _process(delta):
 	if(overlaps_body(player) and is_overlapping == false):
+		print("DCHLDSKHHDFJILDSF")
 		if(popup_in_scene == null):
 			var popup_instance = popup.instance()
-			get_tree().get_root().get_node("Level1/CanvasLayer").add_child(popup_instance)
-			popup_in_scene = get_tree().get_root().get_node("Level1/CanvasLayer").get_node("Popup")
-			popup_in_scene.about_to_show(player)
-			popup_in_scene.set_text("Things are not always as they seem. Check the walls for hidden doors.\n\nNote: to close pop-up dialogues, move away from the sign and click the \"X.\"")
-		popup_in_scene.popup()
+			add_child(popup_instance)
+			popup_in_scene = get_node("Popup")
+			popup_in_scene.name = "Popup2"
+			print("DJLSDJLLJSDHJLSFKJFSJKLJKLSFJKSFJKLFSJKJKSFHJKSFHKFS")
+			popup_in_scene.set_text("The switch next to the sealed gate should be flipped immediatly before the last")
+		popup_in_scene.popup_centered()
 		is_overlapping = true
 	else:
 		if(popup_in_scene != null):

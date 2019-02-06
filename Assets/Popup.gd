@@ -14,3 +14,6 @@ func _notification(what):
 		open = false
 	elif(what == NOTIFICATION_POST_POPUP):
 		open = true
+		
+func about_to_show(player):
+	# set_position(Vector2(player.global_position.x,player.global_position.y))
