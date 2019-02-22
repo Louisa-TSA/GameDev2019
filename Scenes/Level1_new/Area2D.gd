@@ -13,7 +13,6 @@ func _process(delta):
 		if(popup_in_scene == null):
 			var popup_instance = popup.instance()
 			get_tree().get_root().get_node("Level1/CanvasLayer").add_child(popup_instance)
-			add_child(popup_instance)
 			popup_in_scene = get_tree().get_root().get_node("Level1/CanvasLayer").get_node("Popup")
 			popup_in_scene.about_to_show(player)
 			popup_in_scene.set_text("Things are not always as they seem. Check the walls for hidden doors.\n\nNote: to close pop-up dialogues, move away from the sign and click the \"X.\"")
