@@ -5,9 +5,10 @@ var velocity  = Vector2()
 var speed     = 7500.0
 
 var sprite
-var spudgun_sprite
 var spudgun
-var has_spudgun = false
+
+var no_gun_tex   = load("res://Assets/Resources/Indiv/somegoi.png")
+var with_gun_tex = load("res://Assets/Resources/Indiv/characterrrr with gun.png")
 
 enum Facing {
 	LEFT,
@@ -20,13 +21,15 @@ var direction_facing = Facing.RIGHT
 
 func _ready():
 	sprite = get_node("Sprite")
-	spudgun_sprite = get_node("Sprite/Spudgun/SpudSprite")
 	spudgun = get_node("Sprite/Spudgun")
-	if(!self.has_spudgun):
-		spudgun_sprite.hide()
-		spudgun.exists = false
 
 func _process(delta):
+	
+	if(spudgun.exists):
+		sprite.set_texture(with_gun_tex)
+	else:
+		sprite.set_texture(no_gun_tex)
+	
 	direction = Vector2()
 	
 	if(Input.is_action_pressed("move_forward")):
@@ -40,21 +43,18 @@ func _process(delta):
 	
 	if(direction.y > 0):
 		direction_facing = Facing.DOWN
+		sprite.region_rect = Rect2(Vector2(64, 0), Vector2(64, 128))
 	elif(direction.y < 0):
 		direction_facing = Facing.UP
+		sprite.region_rect = Rect2(Vector2(64, 128), Vector2(64, 128))
 	
 	if(direction.x > 0):
 		direction_facing = Facing.RIGHT
+		sprite.region_rect = Rect2(Vector2(0, 128), Vector2(64, 128))
 	elif(direction.x < 0):
 		direction_facing = Facing.LEFT
+		sprite.region_rect = Rect2(Vector2(0, 0), Vector2(64, 128))
 	
 	velocity = delta * direction.normalized() * speed
-	
-	if(velocity.x < -5):
-		sprite.set_flip_h(true)
-		spudgun_sprite.set_flip_h(true)
-	elif(velocity.x > 5):
-		sprite.set_flip_h(false)
-		spudgun_sprite.set_flip_h(false)
 	
 	velocity = move_and_slide(velocity)

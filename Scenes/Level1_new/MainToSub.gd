@@ -8,7 +8,7 @@ func _ready():
 
 func _process(delta):
 	if(overlaps_body(player) and delay < 0):
-		player.translate(player.to_local(Vector2(1315,10)))
+		player.translate(player.to_local(Vector2(1330,20)))
 		delay = 0.5
 	if(delay >= 0):
 		delay -= delta

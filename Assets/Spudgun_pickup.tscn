@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Spudgun_pickup.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Resources/Spudgun.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Resources/Indiv/gun.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -27,7 +27,7 @@ _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility" ]
 
 [node name="Spudgun2" type="Sprite" parent="." index="1"]
 
-scale = Vector2( 0.1, 0.1 )
+scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 

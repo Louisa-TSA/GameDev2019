@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Player.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Resources/DaddyTrump.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Resources/Indiv/somegoi.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Spudgun.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 10.8876
+radius = 10.0
 
 [node name="Player" type="KinematicBody2D"]
 
@@ -16,33 +16,28 @@ collision_layer = 0
 collision_mask = 3
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "collision" ]
+_sections_unfolded = [ "Collision", "Transform", "collision" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-editor/display_folded = true
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 0, 14 )
+scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 128 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
 
 [node name="Spudgun" parent="Sprite" index="0" instance=ExtResource( 3 )]
 
-position = Vector2( 8.95812, 45.345 )
-scale = Vector2( 10, 10 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
-
-visible = false
-position = Vector2( 0, 25 )
-shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Camera2D" type="Camera2D" parent="." index="2"]
+[node name="Camera2D" type="Camera2D" parent="." index="1"]
 
 visible = false
 anchor_mode = 1
 rotating = false
 current = true
-zoom = Vector2( 0.5, 0.5 )
+zoom = Vector2( 0.25, 0.25 )
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000
@@ -61,5 +56,11 @@ drag_margin_bottom = 0.02
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
+_sections_unfolded = [ "Limit" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+
+position = Vector2( -0.142319, 26.8267 )
+shape = SubResource( 1 )
 
 
